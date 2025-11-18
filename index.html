@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Design Principles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav>
+  <ul class="navbar">
+    <li><a href="index.html" class="active">ABOUT</a></li>
+    <li><a href="principles.html">PRINCIPLES</a></li>
+    <li><a href="color.html">COLOR</a></li>
+    <li><a href="typography.html">TYPOGRAPHY</a></li>
+  </ul>
+</nav>
+	
+<section class="header-hero">
+  <img src="How to be a Successful.svg" alt="" class="header-image">
+
+  <a href="#about" class="fun-btn hero-btn">Learn More About Me!</a>
+</section>
+
+
+<section id="about" class="white-section about-section fade-in">
+  <h2 class="dm-serif-text-regular fade-in">About</h2>
+  <img src="1.svg" class="about-photo fade-in" alt="About section image">
+  <p class="about-intro-line fade-in">
+    Hi, I'm Ashly — a web design student and creator.
+  </p>
+  <p class="body-text fade-in">
+    This website is about web design created by Ashly Rico as a student project for ARTD 245: Web Design at North Central College in Naperville, IL, in 2025.
+  </p>
+  <p class="body-text fade-in">
+    All the text comes from articles located on the Dribbble website.All the images were created by me using Photoshop and Canva. The website has been created using HTML and CSS in Dreamweaver.
+  </p>
+
+</section>
+
+
+<section>
+  <h2 class="fade-in">Article Sources</h2>
+
+  <ul class="centered-list fade-in">
+    <li><a href="https://www.flux-academy.com/blog/ultimate-guide-to-choosing-colors-for-web-design">Ultimate Guide to Choosing Colors For Web Design</a> — Stephanie Corrigan</li>
+
+    <li><a href="https://www.flux-academy.com/blog/the-ultimate-guide-to-choosing-fonts">The Ultimate Guide to Choosing Fonts</a> — Monica Galvan</li>
+
+    <li><a href="https://dribbble.com/resources/education/principles-of-design">11 Principles of Design (and How To Use Them)</a> — Renee Fleck</li>
+  </ul>
+</section>
+
+
+<section>
+  <h2 class="fade-in">Project Brief</h2>
+
+  <p class="body-text fade-in">
+    Design and develop a visually pleasing, interactive website with multiple HTML pages, navigation connecting all the pages, featuring a cohesive color scheme, a clear visual hierarchy, a balanced layout, exciting visuals, and text. The goal is to learn how to code/develop an interactive website by applying design principles.
+  </p>
+</section>
+
+	
+	
+	
+<button id="backToTop">↑</button>
+	
+<footer class="site-footer">
+  <p>© 2025 Ashly Rico. All rights reserved.</p>
+</footer>
+	
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const faders = document.querySelectorAll(".fade-in");
+
+  const appearOptions = {
+    threshold: 0.1,
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      } else {
+        entry.target.classList.remove("show");  // <--- fade-out on scroll out
+      }
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+});
+</script>
+	
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      btn.style.opacity = "1";
+      btn.style.pointerEvents = "auto";
+    } else {
+      btn.style.opacity = "0";
+      btn.style.pointerEvents = "none";
+    }
+  });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+});
+</script>
+	
+</body>
+</html>
